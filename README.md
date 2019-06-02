@@ -8,6 +8,8 @@
 
 1. t.string :Title
 2. t.text :Content
+3. t.integer :user_id
+4. t.integer :category_id
 
 
 ## **Users Table**
