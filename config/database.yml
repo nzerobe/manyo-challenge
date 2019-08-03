@@ -11,7 +11,7 @@ development:
   database: sample_development
 test:
   <<: *default
-  database: sample_test
+  database: sample_development
 
 production:
   <<: *default
