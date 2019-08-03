@@ -27,4 +27,7 @@ module Docs
 #                    request_specs: false
 #   g.fixture_replacement :factory_bot, dir: "spec/factories"
 #   end
+  config.i18n.default_locale = :ja
+  config.time_zone = 'Tokyo'
+  config.active_record.default_timezone = :local
 end
