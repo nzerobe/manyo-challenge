@@ -39,4 +39,16 @@ end
     expect(page).to have_content'samplesample'
   end
   
+#   scenario " Testing Blog Details "  do
+#     visit blog_path(@blogtest1.id)
+#     expect(page).to have_content 'testtesttest'
+#   end
+   scenario " Testing Blog Details "  do
+    blog = Blog.create!(title:"testtesttest",content:"samplesample")
+    visit blog_path(blog.id)
+    expect(page).to have_content "samplesample"
+  end
+  
+  
+  
 end
