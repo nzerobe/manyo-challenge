@@ -4,17 +4,6 @@ require 'rails_helper'
 # On the right side of this RSpec.feature, write the test item name like "task management feature" (grouped by do ~ end)
 RSpec.feature "Task management function", type: :feature do
   # In scenario (alias of it), write the processing of the test for each item you want to check.
-  scenario "Test blog list" do
-
-  end
-
-  scenario "Test blog creation" do
-
-  end
-
-  scenario "Test blog details" do
-
-  end
   
   scenario "Test blog list" do
   # Create two tasks in advance to use in the task list test
@@ -39,16 +28,19 @@ end
     expect(page).to have_content'samplesample'
   end
   
-#   scenario " Testing Blog Details "  do
-#     visit blog_path(@blogtest1.id)
-#     expect(page).to have_content 'testtesttest'
-#   end
+#   
    scenario " Testing Blog Details "  do
     blog = Blog.create!(title:"testtesttest",content:"samplesample")
     visit blog_path(blog.id)
     expect(page).to have_content "samplesample"
   end
   
+   scenario " Test the blog list "  do
+    visit blogs_path
+    expect (page) .to have_content 'testtesttest'
+    expect (page) .to have_content 'samplesample'
+
+  end
   
   
 end
