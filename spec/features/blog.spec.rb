@@ -28,19 +28,17 @@ end
     expect(page).to have_content'samplesample'
   end
   
-#   
    scenario " Testing Blog Details "  do
     blog = Blog.create!(title:"testtesttest",content:"samplesample")
     visit blog_path(blog.id)
     expect(page).to have_content "samplesample"
   end
   
-   scenario " Test the blog list "  do
-    visit blogs_path
-    expect (page) .to have_content 'testtesttest'
-    expect (page) .to have_content 'samplesample'
-
+  scenario "Test whether blogs are arranged in descending order of creation date" do
+   # Write test content here   
+    visit root_path
+    expect(first('tbody tr')).to have_content 'samplesample'
+    expect(all('tbody tr')[1]).to have_content 'testtesttest'
   end
-  
   
 end
