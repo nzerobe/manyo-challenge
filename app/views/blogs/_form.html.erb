@@ -11,14 +11,19 @@
     </div>
   <% end %>
 
-  <div class="blog_title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="blog_title">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
+  <div class="control-group form-group">
+      <div class="controls">
+        <%= form.label :"タイトル" %>
+        <%= form.text_field :title, id: :task_title, class:"form-control"%>
+      </div>
+    </div>
+
+    <div class="control-group form-group">
+      <div class="controls">
+        <%= form.label :"タスク内容" %>
+        <%= form.text_area :content, id: :task_content, class:"form-control" %>
+      </div>
+    </div>
   <%= form.submit %>
 <% end %>
 

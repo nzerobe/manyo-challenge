@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 # On the right side of this RSpec.feature, write the test item name like "task management feature" (grouped by do ~ end)
-RSpec.feature "Task management function", type: :feature do
+RSpec.feature "Blog management function", type: :feature do
   # In scenario (alias of it), write the processing of the test for each item you want to check.
   
   scenario "Test blog list" do
@@ -37,8 +37,9 @@ end
   scenario "Test whether blogs are arranged in descending order of creation date" do
    # Write test content here   
     visit root_path
-    expect(first('tbody tr')).to have_content 'samplesample'
-    expect(all('tbody tr')[1]).to have_content 'testtesttest'
+    
+    expect(Blog.order("created_at DESC").each)
+#     
   end
   
 end

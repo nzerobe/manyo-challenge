@@ -1,4 +1,5 @@
-<%= form_with(model: @blogs, local: true) do |form| %>
+
+  <%= form_with(model: @blogs, local: true) do |form| %>
 <% if @blogs.errors.any? %>
     <div id="error_explanation">
       <h2><%= @blogs.errors.count %>errors occurred.</h2>
@@ -23,3 +24,7 @@
  
   <%= form.submit %>
 <% end %>
+  <%= link_to 'タスク一覧画面に戻る', blogs_path, class:"btn btn-lg btn-secondary btn-block" %>
+ 
+  
+
