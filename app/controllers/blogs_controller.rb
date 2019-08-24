@@ -10,16 +10,33 @@ class BlogsController < ApplicationController
   def new
   @blogs = Blog.new
   end
+#   def create
+#     @blogs = Blog.new(blog_params)
+#     if @blogs.save
+#       # Switch to the list screen and display a message saying "You have created new blog!"
+#       redirect_to blogs_path, Notice: "You have created new blog!"
+#     else
+#       # Redraw the input form.
+#       render 'new'
+#     end
+#   end
+  
   def create
+#     @blog = current_user.blogs.build(blog_params)
     @blogs = Blog.new(blog_params)
     if @blogs.save
-      # Switch to the list screen and display a message saying "You have created new blog!"
-      redirect_to blogs_path, Notice: "You have created new blog!"
+#       blog_labels_create
+      redirect_to blogs_path
+      flash[:success] = 'Blog Created'
     else
-      # Redraw the input form.
       render 'new'
     end
   end
+  
+  
+  
+  
+  
   def show
     # 追記する
      @blogs = Blog.find(params[:id])
