@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
     
     
   def index
-    @blogs = Blog.all
+#     @blogs = Blog.all
     @blogs = Blog.order('created_at DESC')
   end
 # Add
