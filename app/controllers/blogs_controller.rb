@@ -1,32 +1,20 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy] 
-    
-    
-    
+   
   def index
 
     @blogs = Blog.order('created_at DESC')
   end
-# Add
+
   def new
   @blogs = Blog.new
   end
-#   def create
-#     @blogs = Blog.new(blog_params)
-#     if @blogs.save
-#       # Switch to the list screen and display a message saying "You have created new blog!"
-#       redirect_to blogs_path, Notice: "You have created new blog!"
-#     else
-#       # Redraw the input form.
-#       render 'new'
-#     end
-#   end
   
   def create
-#     @blog = current_user.blogs.build(blog_params)
+   
     @blogs = Blog.new(blog_params)
     if @blogs.save
-#       blog_labels_create
+
       redirect_to blogs_path
       flash[:success] = 'Blog Created'
     else
@@ -34,12 +22,9 @@ class BlogsController < ApplicationController
     end
   end
   
-  
-  
-  
-  
+ 
   def show
-    # 追記する
+    
      @blogs = Blog.find(params[:id])
   end
   def edit
@@ -60,9 +45,8 @@ class BlogsController < ApplicationController
     redirect_to blogs_path, Notice: "You have deleted the blog!"
   end
   
-  #Omitted
   private
-  #Before_action : Set_blog, only: [:show, :edit, :update, :destroy] 
+
    def blog_params
     params.require(:blog).permit(:title, :content)
    end
