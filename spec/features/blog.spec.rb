@@ -4,8 +4,8 @@ require 'rails_helper'
 # On the right side of this RSpec.feature, write the test item name like "task management feature" (grouped by do ~ end)
 RSpec.feature "Blog management function", type: :feature do
   # In scenario (alias of it), write the processing of the test for each item you want to check.
-  
-  scenario "Test blog list" do
+  background do
+#   scenario "Test blog list" do
   # Create two tasks in advance to use in the task list test
   Blog.create!(title: 'test_blog_01', content: 'testtesttest')
   Blog.create!(title: 'test_blog_02', content: 'samplesample')
@@ -15,10 +15,13 @@ RSpec.feature "Blog management function", type: :feature do
 
   # write a test to verify that the string "" testtesttest "" samplesample "is included when accessing the task list page using have_content method
 
-  expect(page).to have_content 'testtesttest'
-  expect(page).to have_content 'samplesample'
+#   expect(page).to have_content 'testtesttest'
+#   expect(page).to have_content 'samplesample'
 end
-  
+  scenario "Test blog list" do
+  # Create two tasks in advance to use in the task list test
+ 
+end
    scenario " Testing blog creation "  do
     visit new_blog_path
     fill_in 'blog_title', with: 'testtesttest'
@@ -38,7 +41,9 @@ end
    # Write test content here   
     visit root_path
     
-    expect(Blog.order("created_at DESC").each)
+#     
+     expect(Blog.order("updated_at desc").map(&:id)).to eq [ 10, 9]
+#     expect(Blog.order("created_at DESC").each)
 #     
   end
   
