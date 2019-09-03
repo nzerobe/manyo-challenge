@@ -2,12 +2,11 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy] 
    
   def index
-
     @blogs = Blog.order('created_at DESC')
   end
 
   def new
-  @blogs = Blog.new
+    @blogs = Blog.new
   end
   
   def create
@@ -24,9 +23,9 @@ class BlogsController < ApplicationController
   
  
   def show
-    
-     @blogs = Blog.find(params[:id])
+   @blogs = Blog.find(params[:id])
   end
+  
   def edit
      @blogs = Blog.find(params[:id])
   end
@@ -48,11 +47,11 @@ class BlogsController < ApplicationController
   private
 
    def blog_params
-    params.require(:blog).permit(:title, :content)
+     params.require(:blog).permit(:title, :content)
    end
   
   def set_blog
-    @blogs = Blog.find(params[:id])
+    @blog = Blog.find(params[:id])
   end
   
 end  
