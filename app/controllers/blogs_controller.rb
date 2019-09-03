@@ -40,7 +40,7 @@ class BlogsController < ApplicationController
   end
   
   def destroy
-    @blogs.destroy
+    @blog.destroy
     redirect_to blogs_path, Notice: "You have deleted the blog!"
   end
   
