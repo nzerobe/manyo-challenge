@@ -47,4 +47,14 @@ end
 #     
   end
   
+   scenario " Blog completion deadline entry test "  do
+    visit new_blog_path
+    fill_in 'blog_title', with: 'testtesttest'
+    fill_in 'blog_content', with: 'samplesample'
+    fill_in 'blog_deadline', with: DateTime.now
+    click_on 'Create Blog'
+    expect(page).to have_content '2019'
+  end
+  
+  
 end

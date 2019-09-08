@@ -1,19 +1,40 @@
+<%= form_with(model: @blogs, local: true) do |form| %>
+  <% if @blogs.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @blogs.errors.count %>errors occurred.</h2>
+      <ul>
 
-  <%= form_with(model: @blogs, local: true) do |form| %>
-<div class="blog_title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="blog_title">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-  <h2>Create a new Post</h2>
+      <% @blogs.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  
-  <%= form.submit %>
+ div class="control-group form-group">
+      <div class="controls">
+        <%= form.label :"Title" %>
+        <%= form.text_field :title, id: :blog_title, class:"form-control"%>
+      </div>
+    </div>
+
+    <div class="control-group form-group">
+      <div class="controls">
+        <%= form.label :"Content" %>
+        <%= form.text_area :content, id: :blog_content, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="control-group form-group">
+      <div class="controls">
+        <%= form.label :"EXP" %>
+        <%= form.date_field :deadline, id: :blog_deadline, class:"form-control" %>
+      </div>
+    </div>
+ <div class="actions">
+    <%= form.submit class:"btn btn-primary", id:"sendMessageButton"%>
+  </div>
 <% end %>
-        <%= link_to 'このタスクの詳細', @blog, class:"btn btn-lg btn-secondary btn-block" %>
-        <%= link_to 'タスク一覧画面', blogs_path, class:"btn btn-lg btn-secondary btn-block" %>
-  
+
+<%= link_to "Return to List of duffs screen", blogs_path %>
 <%= t('blog.index') %>

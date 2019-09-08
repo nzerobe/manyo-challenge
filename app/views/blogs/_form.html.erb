@@ -13,18 +13,26 @@
 
   <div class="control-group form-group">
       <div class="controls">
-        <%= form.label :"タイトル" %>
-        <%= form.text_field :title, id: :task_title, class:"form-control"%>
+        <%= form.label :"TITLE" %>
+        <%= form.text_field :title, id: :blog_title, class:"form-control"%>
       </div>
     </div>
 
     <div class="control-group form-group">
       <div class="controls">
-        <%= form.label :"タスク内容" %>
-        <%= form.text_area :content, id: :task_content, class:"form-control" %>
+        <%= form.label :"CONTENT %>
+        <%= form.text_area :content, id: :blog_content, class:"form-control" %>
       </div>
     </div>
-  <%= form.submit %>
+<div class="control-group form-group">
+      <div class="controls">
+        <%= form.label :"EXP" %>
+        <%= form.date_field :deadline, id: :blog_deadline, class:"form-control" %>
+      </div>
+    </div>
+ <div class="actions">
+    <%= form.submit class:"btn btn-primary", id:"sendMessageButton"%>
+  </div>
 <% end %>
 
 <%= link_to "Return to List of duffs screen", blogs_path %>
