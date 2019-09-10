@@ -80,3 +80,4 @@ end
 group :development, :test do
     gem 'capybara'
 end
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
