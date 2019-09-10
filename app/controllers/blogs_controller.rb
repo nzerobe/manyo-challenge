@@ -1,12 +1,14 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy] 
+  PER = 25
    
   def index
     
-    if params[:sort_expired]=="True"
-       @blogs = Blog.page(params[:page]).per(9).order('deadline ASC')
-#        @blogs = Blog.all.sort_deadline.page(params[:page]).per(PER)
-       @blogs = Kaminari.paginate_array(blogs).page(params[:page]).per(PER)
+    if params[:sort_expired]=="true"
+#        @blogs = Blog.page(params[:page]).per(25).order('deadline ASC')
+       @blogs = Blog.all.sort_deadline.page(params[:page]).per(PER)
+#        @blogs = Kaminari.paginate_array(blogs).page(params[:page]).per(PER)
+      
     end
     @blogs = Blog.order('created_at DESC')
   end
@@ -53,7 +55,7 @@ class BlogsController < ApplicationController
   private
 
    def blog_params
-     params.require(:blog).permit(:title, :content,  :deadline)
+     params.require(:blog).permit(:title, :content,  :deadline, :expired_at)
    end
   
   def set_blog

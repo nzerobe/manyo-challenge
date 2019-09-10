@@ -81,3 +81,4 @@ group :development, :test do
     gem 'capybara'
 end
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'kaminari', '~> 0.16.3'
