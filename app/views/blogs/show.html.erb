@@ -1,5 +1,16 @@
 <h1>Duff Detail Screen </h1>
-<p>Title: <%= @blogs.title %></p>
-<p>Contents: <%= @blogs.content %></p>
-<p>EXP: <%= @blog.deadline %></p>
+
+<table  class="new_table">
+
+    <tr><th><%= t('view.title') %></th>
+      <td><%= @blog.title %></td></tr>
+    <tr><th><%= t('view.content') %></th>
+      <td><%= @blog.content %></td></tr>
+    <tr><th><%= t('view.created_at') %></th>
+      <td><%= @blog.created_at.strftime("%Y-%m-%d") %></td></tr>
+    <tr><th><%= t('view.expired_at') %></th>
+      <td><%= @blog.expired_at.strftime("%Y-%m-%d") %></td></tr>
+      
+  </table>
+
 <%= t('blog.index') %>

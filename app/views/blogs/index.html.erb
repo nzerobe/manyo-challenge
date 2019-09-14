@@ -6,13 +6,13 @@
     <th>Contents</th></th>
   </tr>
 
-<%= link_to "Sort by end date", blogs_path(sort_expired: 'true') %>
+
+<%= link_to "Expiration", blogs_path(sort_expired: "true"), class: 'btn btn-outline-warning btn-sm' %>
 <% @blogs.each do |blog| %>
   <tr>
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
-   <td><%= blog.created_at.strftime("%Y/%m/%d") %></td>
-      <td><%= blog.expired_at.strftime("%Y/%m/%d") %></td>
+    <td><%= blog.deadline %></td>
    <td><%= link_to 'Check the details', blog_path(blog.id) %></td>
    
   

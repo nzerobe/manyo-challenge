@@ -1,16 +1,15 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy] 
-  PER = 25
+#   PER = 25
    
   def index
-    
-    if params[:sort_expired]=="true"
-#        @blogs = Blog.page(params[:page]).per(25).order('deadline ASC')
-       @blogs = Blog.all.sort_deadline.page(params[:page]).per(PER)
-#        @blogs = Kaminari.paginate_array(blogs).page(params[:page]).per(PER)
-      
-    end
-    @blogs = Blog.order('created_at DESC')
+   
+  if params[:sort_expired] 
+#     @blogs = Blog.all.sort_deadline.page(params[:page]).per(PER)   
+    @blogs = Blog.page(params[:page]).per(20).order('deadline ASC')
+   end
+#     @blogs = Blog.order('created_at DESC')  
+    @blogs = Blog.page(params[:page]).per(20).order('created_at DESC')
   end
 
   def new
