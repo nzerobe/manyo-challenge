@@ -2,15 +2,17 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy] 
 #   PER = 25
    
-  def index
-   
-  if params[:sort_expired] 
+  def index 
+   byebug
+    if params[:sort_expired] 
 #     @blogs = Blog.all.sort_deadline.page(params[:page]).per(PER)   
-    @blogs = Blog.page(params[:page]).per(20).order('deadline ASC')
-   end
+     @blogs = Blog.page(params[:page]).per(20).order('deadline ASC')
+    else
 #     @blogs = Blog.order('created_at DESC')  
     @blogs = Blog.page(params[:page]).per(20).order('created_at DESC')
-  end
+    end
+  end 
+  
 
   def new
     @blogs = Blog.new

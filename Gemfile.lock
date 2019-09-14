@@ -51,7 +51,7 @@ GEM
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     builder (3.2.3)
-    byebug (11.0.1)
+    byebug (9.1.0)
     capybara (3.28.0)
       addressable
       mini_mime (>= 0.1.3)

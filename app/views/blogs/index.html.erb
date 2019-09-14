@@ -8,6 +8,7 @@
 
 
 <%= link_to "Expiration", blogs_path(sort_expired: "true"), class: 'btn btn-outline-warning btn-sm' %>
+<% byebug %>
 <% @blogs.each do |blog| %>
   <tr>
     <td><%= blog.title %></td>
